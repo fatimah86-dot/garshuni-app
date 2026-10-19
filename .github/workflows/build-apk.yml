@@ -10,16 +10,14 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
       - uses: gradle/actions/setup-gradle@v3
-      - name: FIX OCR BIAR BISA BACA ARAB
-        run: |
-          # Tambah Arabic model
-          grep -q "text-recognition-arabic" app/build.gradle.kts || sed -i '/mlkit.text.recognition/a \            implementation("com.google.mlkit:text-recognition-arabic:16.0.0")' app/build.gradle.kts
-          # Ganti DEFAULT_OPTIONS jadi ARABIC
-          find app/src -type f -name "*.kt" -exec sed -i 's/TextRecognizerOptions.DEFAULT_OPTIONS/ArabicTextRecognizerOptions.Builder().build()/g' {} \;
-          find app/src -type f -name "*.kt" -exec sed -i '/import com.google.mlkit.vision.text.*TextRecognition/a import com.google.mlkit.vision.text.arabic.ArabicTextRecognizerOptions' {} \;
-          cat app/build.gradle.kts | grep -A2 mlkit
+      - run: |
+          find . -name "google-services.json" -delete
+          mkdir -p app
+          cat > app/google-services.json <<'EOF'
+          {"project_info":{"project_number":"1234567890","project_id":"garshuni-dummy"},"client":[{"client_info":{"mobilesdk_app_id":"1:1234567890:android:abcdef","android_client_info":{"package_name":"com.aistudio.garshuni.trnxkp"}},"oauth_client":[],"api_key":[{"current_key":"dummy"}],"services":{"appinvite_service":{"other_platform_oauth_client":[]}}}],"configuration_version":"1"}
+          EOF
       - run: gradle assembleDebug
       - uses: actions/upload-artifact@v4
         with:
-          name: Garshuni-APK-Arabic
+          name: Garshuni-APK
           path: app/build/outputs/apk/debug/*.apk
