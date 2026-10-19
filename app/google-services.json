@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "1234567890",
+    "project_number": "412458692251",
     "project_id": "garshuni-dummy",
-    "storage_bucket": "garshuni-dummy.appspot.com"
+    "storage_bucket": "garshuni-dummy.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:1234567890:android:abcdef123456",
+        "mobilesdk_app_id": "1:412458692251:android:67f04e30f7e193d3ff603e",
         "android_client_info": {
           "package_name": "com.aistudio.garshuni.trnxkp"
         }
@@ -15,7 +15,7 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDummyKey1234567890"
+          "current_key": "AIzaSyCkMD_O8DyMsmczNn-aNGTmWbjHGEq558s"
         }
       ],
       "services": {
