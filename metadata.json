@@ -1,0 +1,6 @@
+{
+  "name": "Garshuni",
+  "description": "Kitab Kuning & Hikmah Translator with OCR, Auto-Harokat, and Suryani Birhatiyah transliteration",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
